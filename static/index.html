@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Quadoor</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+<div data-role="page">
+
+	<div data-role="header">
+		<h1>Quadoor</h1>
+	</div><!-- /header -->
+
+	<div role="main" class="ui-content">
+        <button class="ui-btn" value="1">engine 1</button>
+        <button class="ui-btn" value="2">engine 2</button>
+        <button class="ui-btn" value="3">engine 3</button>
+        <button class="ui-btn" value="4">engine 4</button>
+        <button class="ui-btn" value="5">engine 5</button>
+	</div><!-- /content -->
+
+</div><!-- /page -->
+<script>
+        $("button.ui-btn").click(function() {
+           var formData = {
+               'control_id': this.value 
+           };
+           $.ajax({
+             type: 'POST',
+             url: 'command',
+             data: formData,
+             dataType: 'json',
+             encode: true
+           })
+           .done(function(data) {
+             console.log(data);
+           })
+       });
+       </script>
+</body>
+</html>
