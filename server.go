@@ -13,7 +13,7 @@ func sendCommand(w http.ResponseWriter, r *http.Request) {
 	}
 	controlID := r.FormValue("control_id")
 	log.Printf("control_id = %s\n", controlID)
-	req, err := http.NewRequest("GET", "http://10.0.0.10:5000/?gpio="+controlID, nil)
+	req, err := http.NewRequest("GET", "http://10.118.111.181:5000/?gpio="+controlID, nil)
 	if err != nil {
 		log.Print(err)
 		os.Exit(1)
